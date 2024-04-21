@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>삼식이맵</title>
+    <title>삼색이맵</title>
     <style>
 		@font-face {
 			font-family: 'Cafe24Ssurround';
@@ -46,7 +46,7 @@
 
         #map {
             width: 100%;
-            height: 80vh;
+            height: 85vh;
         }
 
         /* 제보하기 버튼 스타일 */
@@ -71,7 +71,7 @@
 <body>
 <header>
     <img src="./logo.jpg" alt="로고" id="logo">
-    <h1>삼식이맵</h1>
+    <h1>삼색이맵</h1>
 </header>
 <div id="map"></div>
 <a href="https://forms.gle/hL1zSxwpf6m8BfBG7" id="reportButton">제보하기</a>
@@ -92,20 +92,14 @@
     // 마커를 표시할 위치들
     var positions = [
         {
-            latlng: new kakao.maps.LatLng(37.458644, 127.128738),
-            content: '<div style="padding:5px;">04-22<br>동서울대학교</div>'
+            latlng: new kakao.maps.LatLng(37.460862, 127.129629),
+            content: '<div style="padding:5px;">04/18<br>10호관 샛길</div>',
+			iwRemoveable: true
         },
         {
-            latlng: new kakao.maps.LatLng(36.459123, 124.128600),
-            content: '<div style="padding:5px;">Hello World 2!</div>'
-        },
-        {
-            latlng: new kakao.maps.LatLng(36.459123, 124.128600),
-            content: '<div style="padding:5px;">Hello World 2!</div>'
-        },
-        {
-            latlng: new kakao.maps.LatLng(34.459500, 120.129000),
-            content: '<div style="padding:5px;">Hello World 3!</div>'
+            latlng: new kakao.maps.LatLng(37.458012, 127.127756),
+            content: '<div style="padding:5px;">03/18<br>기숙사 근처</div>',
+			iwRemoveable: true
         }
     ];
 
@@ -123,7 +117,8 @@
 
         // 인포윈도우 생성
         var infowindow = new kakao.maps.InfoWindow({
-            content: positions[i].content
+            content: positions[i].content,
+			removable : iwRemoveable
         });
 
         // 마커에 클릭 이벤트 등록
