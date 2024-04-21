@@ -46,7 +46,25 @@
 
         #map {
             width: 100%;
-            height: 70vh;
+            height: 80vh;
+        }
+
+        /* 제보하기 버튼 스타일 */
+        #reportButton {
+            display: block;
+            padding: 10px;
+            text-align: center;
+            background-color: #ff81f4;
+            color: #fff;
+            text-decoration: none;
+            border: none;
+            border-radius: 5px;
+            margin-top: 10px;
+            cursor: pointer;
+        }
+
+        #reportButton:hover {
+            background-color: #7305a7;
         }
     </style>
 </head>
@@ -56,6 +74,7 @@
     <h1>삼식이맵</h1>
 </header>
 <div id="map"></div>
+<a href="https://forms.gle/hL1zSxwpf6m8BfBG7" id="reportButton">제보하기</a>
 
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=7ffd2ac7b29fac35b9b16093d455e0f4"></script>
 <script>
@@ -79,8 +98,9 @@
     marker.setMap(map);
 
     // 마커를 클릭했을 때 마커 위에 표시할 인포윈도우를 생성합니다
-    var iwContent = '<div style="padding:5px;">Hello World!</div>'; // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
-
+	var iwContent = '<div style="padding:5px;">Hello World!</div>', // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
+    iwRemoveable = true; // removeable 속성을 ture 로 설정하면 인포윈도우를 닫을 수 있는 x버튼이 표시됩니다
+	
     // 인포윈도우를 생성합니다
     var infowindow = new kakao.maps.InfoWindow({
         content: iwContent
